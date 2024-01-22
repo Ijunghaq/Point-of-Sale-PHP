@@ -1,0 +1,75 @@
+<!--
+
+TABEL TRANSAKSI
+
+| ID_TRANSAKSI | TANGGAL_TRANSAKSI | ID_PELANGGAN | TOTAL_TRANSAKSI |
+|--------------|-------------------|--------------|-----------------|
+| 1            | 2023-12-20        | 101          | 500.00          |
+| 2            | 2023-12-21        | 102          | 750.00          |
+
+
+Tabel 'DETAIL TRANSAKSI'
+
+| ID_DETAIL_TRANSAKSI | ID_TRANSAKSI | ID_BARANG | JUMLAH | HARGA_PER_BARANG |
+|---------------------|--------------|-----------|--------|------------------|
+| 1                   | 1            | 201       | 2      | 150.00           |
+| 2                   | 1            | 202       | 1      | 200.00           |
+| 3                   | 2            | 203       | 3      | 250.00           |
+
+
+Tabel 'PEMBAYARAN'
+
+| ID_PEMBAYARAN | ID_TRANSAKSI | METODE_PEMBAYARAN | JUMLAH_PEMBAYARAN |
+|---------------|--------------|-------------------|-------------------|
+| 1             | 1            | Tunai             | 500.00            |
+| 2             | 2            | Kartu Kredit      | 750.00            |
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Transaksi dengan Bootstrap</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>Form Transaksi</h2>
+
+  <form action="/proses_transaksi" method="POST">
+    <div class="mb-3">
+      <label for="id_transaksi" class="form-label">ID Transaksi:</label>
+      <input type="text" class="form-control" id="id_transaksi" name="id_transaksi">
+    </div>
+
+    <div class="mb-3">
+      <label for="tanggal_transaksi" class="form-label">Tanggal Transaksi:</label>
+      <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi">
+    </div>
+
+    <div class="mb-3">
+      <label for="id_pelanggan" class="form-label">ID Pelanggan:</label>
+      <input type="text" class="form-control" id="id_pelanggan" name="id_pelanggan">
+    </div>
+
+    <div class="mb-3">
+      <label for="total_transaksi" class="form-label">Total Transaksi:</label>
+      <input type="text" class="form-control" id="total_transaksi" name="total_transaksi">
+    </div>
+
+    <div class="mb-3">
+      <label for="id_detail_transaksi" class="form-label">ID Detail Transaksi:</label>
+      <input type="text" class="form-control" id="id_detail_transaksi" name="id_detail_transaksi">
+    </div>
+
+    <!-- Tambahkan elemen input lainnya sesuai kebutuhan -->
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
