@@ -5,6 +5,8 @@ $(function(){
 		
 		let items=[];
 		let a=items.length;
+		let total=0; 
+		let grandTotal=0; 
 	
 	function tambahItems(id,nama, qty, harga) {
 		 var item = items.find(item => item.nama === nama);
@@ -27,13 +29,12 @@ $(function(){
 	}
 	function updateItems(){
 		$('.tableItem').empty();
-		let total=0; 
-		let grandTotal=0; 
+		
 		// a++
 		items.forEach(function(item,index){
 			$('.tableItem').append(`
 																	<tr>
-																		<td>`+ a  +`</td>
+																		<td>`+ (index+1)  +`</td>
 																		<td>`+ item.nama +`</td>
 																		<td class="tdQty">`+ item.qty +`</td>
 																		<td>`+ item.harga  +`</td>
@@ -47,13 +48,14 @@ $(function(){
 																
 															
 																 `);
+			
 			total += item.totalHarga;
 			
 		});
 		$('#subTotal').val(total);
 		grandTotal= total - parseInt($('#discount').val());
 		$('#grandTotal').val(grandTotal);
-		
+		total=0;
 		//a+=1;
 	}
 	
@@ -133,6 +135,14 @@ $(function(){
 		items.length=0;
 		updateItems();
 		
+		
+	});
+	
+	// TEXT DISCOUNT
+	$('#discount').on('change',function(){ 
+		
+		grandTotal= parseInt($('#subTotal').val()) - parseInt($('#discount').val());
+		$('#grandTotal').val(grandTotal);
 		
 	});
 		
