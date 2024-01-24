@@ -145,5 +145,12 @@ $(function(){
 		$('#grandTotal').val(grandTotal);
 		
 	});
+
+	// TEXT CHANGE
+	$('#cash').on('change',function(){ 
+		
+		$('#change').val($('#grandTotal').val()-$('#cash').val());
+		
+	});
 		
 });
