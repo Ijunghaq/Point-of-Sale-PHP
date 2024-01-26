@@ -62,8 +62,8 @@
 					<div class="mb-2">
 					  <label for="id_Transaksi" class="form-label">Pelanggan:</label>
 					   <select class="form-control" id="id" name="id" >
-							<option value='5'> UMUM </option>
-							<option value='6'> Abi </option>
+							<option value='UMUM'> UMUM </option>
+							<option value='MEMBER'> MEMBER </option>
 						  </select>
 					</div>
 
@@ -131,7 +131,7 @@
 				<div class="col-lg-3">
 					<div class="mb-1">
 						<label for="cash" class="form-label  mt-1">Cash :</label>
-						<input type="number" class="form-control" id="cash" name="cash"  >
+						<input type="number" class="form-control" id="cash" name="cash"  required>
 					</div>
 					<div class="mb-1">
 						<label for="change" class="form-label  mt-1">Change :</label>
