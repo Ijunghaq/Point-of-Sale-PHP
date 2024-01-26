@@ -130,9 +130,14 @@ $(function(){
 	//TOMBOL BATAL TREANSAKSI
 	$('#tbBatal').on('click',function(){ alert('Yakin ingin batalkan transaksi ini ?');
 		$('#subTotal').val('');
-		$('#discount').val('');
+		$('#discount').val(0);
 		$('#grandTotal').val('');
-		items.length=0;
+		$('.txtCariTran').focus();
+		
+		items.forEach(function(item, index) {
+			items.splice(0, items.length);
+		});
+		
 		updateItems();
 		
 		
