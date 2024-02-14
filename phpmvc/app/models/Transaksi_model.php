@@ -21,19 +21,20 @@
 		
 		
 		public function tambahDatatransaksi($data){
+			// INSERT data transaksi
 			$query="INSERT INTO transaksi 
 								VALUES 
-								(:id , :nama , :jenis_kelamin, :telp, :alamat)";
+								(:id_trans,current_timestamp() , :total, :pelanggan_id)";
 			$this->db->query($query);
-			
-			$this->db->bind('id',$data['id']);
-			$this->db->bind('nama',$data['nama']);
-			$this->db->bind('jenis_kelamin',$data['jenis_kelamin']);
-			$this->db->bind('telp',$data['telp']);
-			$this->db->bind('alamat',$data['alamat']);
-			
+			$this->db->bind('id_trans',$data['kodeTran']);
+			$this->db->bind('total',$data['cash']);
+			$this->db->bind('pelanggan_id',$data['idPel']);
+			 
 			
 			$this->db->execute();
+			
+			return $this->db->rowCount();
+			
 			
 			return $this->db->rowCount();
 		}
