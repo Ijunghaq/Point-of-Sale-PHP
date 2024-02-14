@@ -8,6 +8,34 @@ $(function(){
 		let total=0; 
 		let grandTotal=0; 
 	
+	// generate kode transaksi
+	function generateTransactionCode(length) {
+		var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+		var transactionCode = '';
+		var charactersLength = characters.length;
+		for (var i = 0; i < length; i++) {
+			transactionCode += characters.charAt(Math.floor(Math.random() * charactersLength));
+		}
+		return transactionCode;
+	}
+
+		// Generate a transaction code with default length (10 characters)
+		var transactionCode = generateTransactionCode(10);
+		
+		
+
+		$('.kodeTran').val(transactionCode);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	function tambahItems(id,nama, qty, harga) {
 		 var item = items.find(item => item.nama === nama);
 		 if(item){
@@ -132,6 +160,8 @@ $(function(){
 		$('#subTotal').val('');
 		$('#discount').val(0);
 		$('#grandTotal').val('');
+		$('#cash').val('');
+		$('#change').val(0);
 		$('.txtCariTran').focus();
 		
 		items.forEach(function(item, index) {
@@ -150,12 +180,18 @@ $(function(){
 		$('#grandTotal').val(grandTotal);
 		
 	});
-
 	// TEXT CHANGE
 	$('#cash').on('change',function(){ 
 		
 		$('#change').val($('#grandTotal').val()-$('#cash').val());
 		
 	});
+	
+	// TEXT CHANGE
+	$('.btnBayar').on('click',function(){ 
 		
+		$('#change').val($('#grandTotal').val()-$('#cash').val());
+		
+	});
 });
+
